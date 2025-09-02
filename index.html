@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Backend Engineer Portfolio - Gaming Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="antialiased">
+    <!-- Animated Background Effects -->
+    <div class="grid-background"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Simple 8-bit Music Toggle -->
+    <div class="music-toggle" id="musicToggle">
+        <span class="music-icon">♪</span>
+        <span class="music-text">8-BIT OFF</span>
+    </div>
+    
+    <div class="container mx-auto px-4">
+        <!-- Navigation -->
+        <header class="flex justify-between items-center py-8">
+            <h1 class="text-2xl font-bold">Welcome<span class="text-cyan-400"> to the </span>Tech Land</h1>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="hover:text-cyan-400 transition duration-300" href="#about">Character</a>
+                <a class="hover:text-cyan-400 transition duration-300" href="#experience">Quests</a>
+                <a class="hover:text-cyan-400 transition duration-300" href="#projects">Artifacts</a>
+                <a class="hover:text-cyan-400 transition duration-300" href="#skills">Skills</a>
+                <a class="hover:text-cyan-400 transition duration-300" href="#guild">Guild</a>
+            </nav>
+
+        </header>
+
+        <!-- Audio Element for 8-bit Music -->
+        <audio id="background-music" loop>
+            <source src="assets/music/8-bit-music-no-copyright-background-instrumental-pixel-party-322342.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="text-center py-20 relative">
+                
+                                        <div class="mb-4 inline-flex items-center gap-3 text-cyan-300">
+                            <svg class="icon-glow h-8 w-8" viewBox="0 0 512 512" fill="currentColor">
+                                <path d="M511.27,331.566L511.27,331.566c0-0.009,0-0.018,0-0.026c-0.008-0.052,0-0.087-0.008-0.14h-0.009
+                                    c-6.682-88.65-27.159-154.403-55.948-198.846c-14.412-22.221-30.968-39.115-49.041-50.507
+                                    c-18.048-11.401-37.649-17.198-57.388-17.18c-14.551-0.009-26.985,2.629-37.527,6.611c-15.836,5.97-27.358,14.795-36.364,21.319
+                                    c-4.495,3.28-8.373,5.961-11.549,7.592c-3.211,1.658-5.475,2.239-7.436,2.239c-1.328-0.009-2.725-0.251-4.521-0.92
+                                    c-3.115-1.137-7.288-3.732-12.278-7.332c-7.531-5.354-16.885-12.764-29.223-18.846c-12.339-6.092-27.766-10.69-46.855-10.664
+                                    c-19.739-0.018-39.34,5.787-57.388,17.18c-27.115,17.119-50.794,46.481-69.008,87.887C18.542,211.332,5.743,264.92,0.746,331.401
+                                    H0.738c-0.009,0.052,0,0.096-0.009,0.14c0,0.008,0,0.017,0,0.026l0,0C0.243,336.981,0,342.247,0,347.358
+                                    c-0.009,25.058,5.77,46.455,16.651,63.141c10.846,16.694,26.863,28.347,45.614,33.822c6.43,1.892,13.068,2.811,19.757,2.811
+                                    c19.445-0.026,39.046-7.618,57.692-20.764c18.681-13.189,36.598-32.052,52.91-55.731c7.845-11.427,18.5-24.798,29.987-34.854
+                                    c5.736-5.032,11.662-9.214,17.362-12.026c5.71-2.82,11.09-4.244,16.027-4.235c4.936-0.009,10.317,1.414,16.026,4.235
+                                    c8.555,4.199,17.588,11.558,25.787,20.112c8.226,8.538,15.67,18.196,21.562,26.76c16.312,23.688,34.23,42.55,52.902,55.739
+                                    c18.655,13.146,38.255,20.738,57.7,20.764c6.69,0,13.328-0.92,19.749-2.811c18.759-5.475,34.776-17.128,45.614-33.822
+                                    C506.221,393.813,512,372.416,512,347.358C512,342.256,511.757,336.981,511.27,331.566z M476.737,398.36
+                                    c-8.104,12.356-19.236,20.469-33.284,24.651c-4.33,1.275-8.807,1.9-13.475,1.908c-13.484,0.026-28.902-5.414-44.894-16.703
+                                    c-15.974-11.254-32.312-28.225-47.418-50.177c-8.564-12.417-20.044-27.012-33.64-38.95c-6.812-5.97-14.169-11.297-22.16-15.245
+                                    c-7.975-3.94-16.677-6.534-25.866-6.534c-9.189,0-17.892,2.594-25.866,6.534c-11.974,5.943-22.577,14.906-31.957,24.616
+                                    c-9.353,9.726-17.432,20.268-23.843,29.579c-15.106,21.952-31.454,38.923-47.419,50.177
+                                    c-15.991,11.288-31.418,16.729-44.894,16.703c-4.677-0.009-9.145-0.633-13.484-1.908c-14.04-4.182-25.172-12.295-33.284-24.651
+                                    c-8.06-12.364-13.04-29.293-13.04-51.002c0-4.451,0.208-9.111,0.65-13.961v-0.052l0.009-0.113
+                                    c6.429-86.17,26.446-148.582,52.451-188.59c12.989-20.026,27.41-34.447,42.256-43.801c14.872-9.353,30.126-13.744,45.544-13.761
+                                    c11.896,0.009,21.424,2.091,29.675,5.189c12.356,4.65,21.883,11.756,31.158,18.507c4.652,3.367,9.233,6.655,14.378,9.336
+                                    c5.111,2.655,11.028,4.729,17.666,4.729c4.399,0,8.556-0.928,12.286-2.325c6.56-2.482,12-6.213,17.422-10.065
+                                    c8.113-5.831,16.208-12.14,26.091-16.981c9.883-4.833,21.449-8.364,37.076-8.39c15.418,0.017,30.672,4.408,45.545,13.761
+                                    c22.264,14.005,43.6,39.532,60.511,78.03c16.92,38.464,29.354,89.735,34.195,154.36v0.052l0.009,0.113
+                                    c0.434,4.842,0.652,9.502,0.652,13.961C489.778,369.067,484.806,386.004,476.737,398.36z"/>
+                                <polygon points="161.232,178.126 122.29,178.126 122.29,213.631 86.785,213.631 86.785,252.573 122.29,252.573 
+                                    122.29,288.079 161.232,288.079 161.232,252.573 196.737,252.573 196.737,213.631 161.232,213.631"/>
+                                <path d="M368.659,167.002c-11.331,0-20.52,9.189-20.52,20.538c0,11.341,9.189,20.538,20.52,20.538
+                                    c11.35,0,20.538-9.197,20.538-20.538C389.197,176.191,380.008,167.002,368.659,167.002z"/>
+                                <path d="M368.659,266.247c-11.331,0-20.52,9.189-20.52,20.53c0,11.349,9.189,20.538,20.52,20.538
+                                    c11.35,0,20.538-9.189,20.538-20.538C389.197,275.436,380.008,266.247,368.659,266.247z"/>
+                                <path d="M418.282,216.633c-11.341,0-20.538,9.189-20.538,20.53c0,11.349,9.197,20.529,20.538,20.529
+                                    c11.35,0,20.538-9.18,20.538-20.529C438.82,225.822,429.631,216.633,418.282,216.633z"/>
+                                <path d="M319.054,216.633c-11.349,0-20.538,9.189-20.538,20.53c0,11.349,9.189,20.529,20.538,20.529
+                                    c11.341,0,20.539-9.18,20.539-20.529C339.592,225.822,330.394,216.633,319.054,216.633z"/>
+                            </svg>
+                            <span class="text-sm uppercase tracking-widest start-text">Start</span>
+                        </div>
+                        <h1 class="neon text-4xl font-bold sm:text-6xl">Manikantha<br/>Ventrapragada</h1>
+                        <div class="my-4"></div>
+                        <span class="gradient-text typewriter">
+                            <span id="typewriter-text"></span>
+                        </span>
+                
+                <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">
+                    Welcome, traveler! I'm a seasoned backend engineer who has mastered the arcane arts of server-side development. 
+                    I craft scalable systems, tame unruly databases, and build APIs that never break under pressure.
+                </p>
+                
+                <div class="mt-6 flex justify-center space-x-4">
+                    <a href="#about" class="quest-button py-3 px-6 rounded-lg flex items-center">
+                        <span class="material-icons mr-2">play_arrow</span>
+                        Enter the Quest
+                    </a>
+                    <a class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300" href="#contact">Join Party</a>
+                </div>
+
+                <!-- Stats HUD -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                    <div class="bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 border border-cyan-500/30">
+                        <div class="text-2xl font-bold text-cyan-400">4+</div>
+                        <div class="text-sm text-gray-400">Years Experience</div>
+                    </div>
+                    <div class="bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 border border-green-500/30">
+                        <div class="text-2xl font-bold text-green-400">10+</div>
+                        <div class="text-sm text-gray-400">Quests Completed</div>
+                    </div>
+                    <div class="bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 border border-blue-500/30">
+                        <div class="text-2xl font-bold text-blue-400">10+</div>
+                        <div class="text-sm text-gray-400">Technologies Mastered</div>
+                    </div>
+                    <div class="bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 border border-purple-500/30">
+                        <div class="text-2xl font-bold text-purple-400">99%</div>
+                        <div class="text-sm text-gray-400">Uptime Achievement</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Character Profile / About Section -->
+            <section id="about" class="py-20 scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-6 flicker-text">
+                            <span class="section-typewriter" data-text="Character ">Character </span><span class="gradient-text">Profile</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                                <h4 class="text-xl font-bold text-cyan-400 mb-2">🎯 Class: Backend Engineer</h4>
+                                <p class="text-gray-300">I am Manikantha Ventrapragada, a Backend Engineer with 4+ years of experience in building scalable backend systems, APIs, and automation tools. I specialize in Python (Django, FastAPI, Flask), designing efficient databases (PostgreSQL, MySQL, MongoDB), and deploying cloud solutions on AWS with Docker and CI/CD pipelines. My passion lies in solving complex engineering challenges and optimizing systems to deliver high-performance solutions.</p>
+                            </div>
+                            
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                                <h4 class="text-xl font-bold text-green-400 mb-2">⚡ Special Abilities</h4>
+                                <ul class="text-gray-300 space-y-1">
+                                    <li>• Microservices Architecture Mastery</li>
+                                    <li>• Database Query Optimization</li>
+                                    <li>• High-Performance API Design</li>
+                                    <li>• Cloud Infrastructure Deployment</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                                <h4 class="text-xl font-bold text-purple-400 mb-2">🌟 Legendary Traits</h4>
+                                <p class="text-gray-300">Problem-solving mindset, passion for clean code, and dedication to building systems that scale to millions of users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 glow">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            </div>
+                            <p class="text-sm text-gray-400">/api/v1/character.js</p>
+                        </div>
+                        <pre class="bg-gray-900 rounded-lg p-6 overflow-x-auto text-sm"><code class="text-gray-300"><span class="text-gray-500">1 </span><span class="text-purple-400">const</span> character = {
+<span class="text-gray-500">2 </span>  <span class="text-cyan-400">name</span>: <span class="text-yellow-400">'Backend Engineer'</span>,
+<span class="text-gray-500">3 </span>  <span class="text-cyan-400">level</span>: <span class="text-red-400">99</span>,
+<span class="text-gray-500">4 </span>  <span class="text-cyan-400">experience</span>: <span class="text-red-400">400000</span>,
+<span class="text-gray-500">5 </span>  <span class="text-cyan-400">skills</span>: [<span class="text-yellow-400">'Python</span>, <span class="text-yellow-400">'SQL'</span>, <span class="text-yellow-400">'Go'</span>],
+<span class="text-gray-500">6 </span>  <span class="text-cyan-400">specialization</span>: <span class="text-yellow-400">'Scalable Systems'</span>,
+<span class="text-gray-500">7 </span>  <span class="text-cyan-400">currentQuest</span>: <span class="text-yellow-400">'Building the Future'</span>
+<span class="text-gray-500">8 </span>};</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Experience / Quests Section -->
+            <section id="experience" class="py-20 scroll-reveal">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl font-bold flicker-text">
+                        <span class="section-typewriter" data-text="Epic ">Epic </span><span class="gradient-text">Quests</span>
+                    </h3>
+                    <p class="mt-4 text-gray-400">My journey through the realms of backend development</p>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="quest-complete bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-green-400">Boss: Inefficient Data Pipelines</h4>
+                                <p class="text-gray-400 text-sm">Strategy: Built cronjob scheduling automation and optimized workflows.</p>
+                                <p class="mt-2 text-gray-300">Result: Saved 10+ developer hours weekly.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-cyan-900/50 text-cyan-300 px-3 py-1 rounded-full text-xs">Node.js</span>
+                                    <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded-full text-xs">MongoDB</span>
+                                    <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full text-xs">Docker</span>
+                                    <span class="bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full text-xs">Kubernetes</span>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <span class="text-3xl">🏆</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quest-complete bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-green-400">Boss: Slow Backend Development</h4>
+                                <p class="text-gray-400 text-sm">Strategy: Designed and deployed REST and GraphQL APIs with Django, FastAPI, Flask.</p>
+                                <p class="mt-2 text-gray-300">Result: Delivered scalable backend services powering critical applications.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-yellow-900/50 text-yellow-300 px-3 py-1 rounded-full text-xs">Python</span>
+                                    <span class="bg-red-900/50 text-red-300 px-3 py-1 rounded-full text-xs">Redis</span>
+                                    <span class="bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full text-xs">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <span class="text-3xl">⚔️</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quest-complete bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-green-400">Boss: Deployment Bottlenecks</h4>
+                                <p class="text-gray-400 text-sm">Strategy: Automated CI/CD pipelines with Docker, GitHub Actions, and AWS.</p>
+                                <p class="mt-2 text-gray-300">Result: Reduced deployment time and improved release reliability.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded-full text-xs">Express.js</span>
+                                    <span class="bg-teal-900/50 text-teal-300 px-3 py-1 rounded-full text-xs">MySQL</span>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <span class="text-3xl">🌟</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Projects / Artifacts Section -->
+            <section id="projects" class="py-20 scroll-reveal">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl font-bold flicker-text">
+                        <span class="section-typewriter" data-text="Legendary ">Legendary </span><span class="gradient-text">Artifacts</span>
+                    </h3>
+                    <p class="mt-4 text-gray-400">Powerful creations forged in the fires of code</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 card-3d group">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-cyan-400">Data Extraction Tool</h4>
+                            <span class="text-2xl">⚡</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">GET /data-extraction-tool<br/>Response: {"impact": "Automated large-scale data scraping and transformation pipelines"}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-900/50 text-green-300 px-2 py-1 rounded text-xs">Node.js</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-xs">Redis</span>
+                            <span class="bg-purple-900/50 text-purple-300 px-2 py-1 rounded text-xs">MongoDB</span>
+                        </div>
+                        
+                        <!-- Hidden details that expand on hover -->
+                        <div class="hidden group-hover:block mt-4 p-4 bg-gray-800/50 rounded-lg border border-cyan-500/30">
+                            <h5 class="text-sm font-bold text-cyan-400 mb-2">Project Details:</h5>
+                            <ul class="text-gray-300 space-y-1 text-xs">
+                                <li>• Microservices architecture</li>
+                                <li>• Real-time inventory sync</li>
+                                <li>• JWT authentication</li>
+                                <li>• Rate limiting & caching</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 group-hover:translate-x-1 transition duration-300 mt-4">
+                            View Artifact <span class="material-icons ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-green-500/50 transition-all duration-300 card-3d group">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-green-400">GraphQL API DynamoDB</h4>
+                            <span class="text-2xl">💬</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">GET /graphql-api-dynamodb<br/>Response: {"impact": "Built scalable GraphQL API layer on top of DynamoDB for efficient querying"}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-900/50 text-yellow-300 px-2 py-1 rounded text-xs">Apollo GraphQL</span>
+                            <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-xs">DynamoDB</span>
+                            <span class="bg-indigo-900/50 text-indigo-300 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        
+                        <!-- Hidden details that expand on hover -->
+                        <div class="hidden group-hover:block mt-4 p-4 bg-gray-800/50 rounded-lg border border-green-500/30">
+                            <h5 class="text-sm font-bold text-green-400 mb-2">GraphQL API Features:</h5>
+                            <ul class="text-gray-300 space-y-1 text-xs">
+                                <li>• GraphQL API</li>
+                                <li>• Apollo GraphQL</li>
+                                <li>• DynamoDB</li>
+                                <li>• Python</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300 group-hover:translate-x-1 transition duration-300 mt-4">
+                            View Artifact <span class="material-icons ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 card-3d group">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-purple-400">ETL Pipelines Gaming</h4>
+                            <span class="text-2xl">🏗️</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">GET /etl-pipelines-gaming<br/>Response: {"impact": "Developed ETL pipelines powering game-driven metadata website"}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-xs">Go</span>
+                            <span class="bg-cyan-900/50 text-cyan-300 px-2 py-1 rounded text-xs">Kubernetes</span>
+                            <span class="bg-orange-900/50 text-orange-300 px-2 py-1 rounded text-xs">Istio</span>
+                        </div>
+                        
+                        <!-- Hidden details that expand on hover -->
+                        <div class="hidden group-hover:block mt-4 p-4 bg-gray-800/50 rounded-lg border border-purple-500/30">
+                            <h5 class="text-sm font-bold text-purple-400 mb-2">Architecture:</h5>
+                            <ul class="text-gray-300 space-y-1 text-xs">
+                                <li>• Service mesh (Istio)</li>
+                                <li>• Auto-scaling pods</li>
+                                <li>• Load balancing</li>
+                                <li>• Circuit breakers</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300 group-hover:translate-x-1 transition duration-300 mt-4">
+                            View Artifact <span class="material-icons ml-1 text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Skills / Skill Tree Section -->
+            <section id="skills" class="py-20 scroll-reveal">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl font-bold flicker-text">
+                        <span class="section-typewriter" data-text="Skill Tree ">Skill Tree </span><span class="gradient-text">Mastery</span>
+                    </h3>
+                    <p class="mt-4 text-gray-400">Technologies mastered through countless hours of practice</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 skill-node">
+                        <h4 class="text-xl font-bold text-cyan-400 mb-6 flex items-center">
+                            <span class="material-icons mr-2">code</span>
+                            Languages
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Python</span>
+                                    <span class="text-green-400 text-sm">Level 95</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">SQL</span>
+                                    <span class="text-blue-400 text-sm">Level 90</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Go</span>
+                                    <span class="text-purple-400 text-sm">Level 85</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                    <!-- Databases -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 skill-node">
+                        <h4 class="text-xl font-bold text-green-400 mb-6 flex items-center">
+                            <span class="material-icons mr-2">storage</span>
+                            Databases
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">MySQL</span>
+                                    <span class="text-red-400 text-sm">Level 90</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">PostgreSQL</span>
+                                    <span class="text-blue-400 text-sm">Level 88</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">MongoDB</span>
+                                    <span class="text-green-400 text-sm">Level 92</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 skill-node">
+                        <h4 class="text-xl font-bold text-purple-400 mb-6 flex items-center">
+                            <span class="material-icons mr-2">cloud</span>
+                            Cloud & DevOps
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Docker</span>
+                                    <span class="text-cyan-400 text-sm">Level 94</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">Kubernetes</span>
+                                    <span class="text-purple-400 text-sm">Level 87</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-2 rounded-full" style="width: 87%"></div>
+                                </div>
+                            </div> -->
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium">AWS</span>
+                                    <span class="text-orange-400 text-sm">Level 89</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2 skill-connector">
+                                    <div class="bg-gradient-to-r from-orange-500 to-yellow-500 h-2 rounded-full" style="width: 89%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Recommendations / Guild Allies Section -->
+            <section id="guild" class="py-20 scroll-reveal">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl font-bold flicker-text">
+                        <span class="section-typewriter" data-text="Guild ">Guild </span><span class="gradient-text">Allies</span>
+                    </h3>
+                    <p class="mt-4 text-gray-400">What fellow adventurers say about my quests</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-cyan-500/50 transition duration-300 card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">RW</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-cyan-400">Ross Wood</h5>
+                                <p class="text-sm text-gray-400">Colleague</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"A master of backend systems, saving our team countless hours with his solutions."</p>
+                        <div class="flex mt-4">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-green-500/50 transition duration-300 card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">YJ</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-green-400">Yash Jain</h5>
+                                <p class="text-sm text-gray-400">Colleague</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"A skilled engineer with sharp problem-solving abilities and backend expertise."</p>
+                        <div class="flex mt-4">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500/50 transition duration-300 card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">AC</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-purple-400">Loading</h5>
+                                <p class="text-sm text-gray-400">.....</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">"Updating..."</p>
+                        <div class="flex mt-4">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-separator"></div>
+            
+            <!-- Contact / Final Portal Section -->
+            <section id="contact" class="py-20 scroll-reveal">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl md:text-5xl font-bold flicker-text">
+                        <span class="section-typewriter" data-text="Ready to Join the ">Ready to Join the </span><span class="gradient-text">Adventure?</span>
+                    </h3>
+                    <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Let's embark on an epic quest together and build something legendary!</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <div class="space-y-6">
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-cyan-500/50 transition duration-300">
+                                <div class="flex items-center mb-2">
+                                    <span class="material-icons text-cyan-400 mr-3">email</span>
+                                    <h4 class="text-lg font-bold">Send a Message</h4>
+                                </div>
+                                <p class="text-gray-400">manikanthav-dev@outlook.com</p>
+                            </div>
+                            
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-green-500/50 transition duration-300">
+                                <div class="flex items-center mb-2">
+                                    <span class="material-icons text-green-400 mr-3">work</span>
+                                    <h4 class="text-lg font-bold">Connect Professionally</h4>
+                                </div>
+                                <p class="text-gray-400">linkedin.com/in/manikanthav-dev</p>
+                            </div>
+                            
+                            <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-purple-500/50 transition duration-300">
+                                <div class="flex items-center mb-2">
+                                    <span class="material-icons text-purple-400 mr-3">code</span>
+                                    <h4 class="text-lg font-bold">View Code</h4>
+                                </div>
+                                <p class="text-gray-400">github.com/playerdev</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-2xl p-8 border border-gray-700 glow">
+                            <h4 class="text-2xl font-bold mb-6 text-center">Enter the Portal</h4>
+                            <form class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="Your Name" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition duration-300">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition duration-300">
+                                </div>
+                                <div>
+                                    <textarea rows="4" placeholder="Your Quest Details" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-500 focus:outline-none transition duration-300"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 glow portal-button" id="portal-btn">
+                                    Start Adventure
+                                    <div class="portal-rings">
+                                        <div class="portal-ring"></div>
+                                        <div class="portal-ring"></div>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-20 py-16 bg-gray-900/50 rounded-t-2xl border-t border-gray-700">
+            <div class="terminal-footer mb-8">
+                <div class="terminal-line">
+                    <span id="terminal-output">[2025] </span><span class="terminal-cursor">_</span>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto px-8">
+                <div>
+                    <h2 class="text-3xl font-bold">Join My <span class="gradient-text">Party</span></h2>
+                    <p class="mt-2 text-gray-400">Looking to collaborate, brainstorm, or tackle backend challenges together? Let's connect and make it legendary.</p>
+                    <div class="mt-6 flex space-x-4">
+                        <a class="text-gray-400 hover:text-cyan-400 transition duration-300" href="#">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-cyan-400 transition duration-300" href="https://linkedin.com/in/manikanthav-dev" target="_blank">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path clip-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H6.328C3.965 1 2 2.984 2 5.356v13.288C2 21.016 3.965 23 6.328 23h11.34c2.364 0 4.328-1.984 4.328-4.356V5.356C22 2.984 20.032 1 17.668 1z" fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-cyan-400 transition duration-300" href="#">
+                            <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <div>
+                        <h5 class="font-bold text-white">Quests</h5>
+                        <ul class="mt-4 space-y-2 text-gray-400">
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#projects">Artifacts</a></li>
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#skills">Skills</a></li>
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#experience">Experience</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white">Guild</h5>
+                        <ul class="mt-4 space-y-2 text-gray-400">
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#guild">Allies</a></li>
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#about">Character</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white">Portal</h5>
+                        <ul class="mt-4 space-y-2 text-gray-400">
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#contact">Contact</a></li>
+                            <li><a class="hover:text-cyan-400 transition duration-300" href="#">Resume</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 mt-16 text-sm">
+                © 2024 Manikanthav-dev. All Rights Reserved. | Level 99 Backend Engineer
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
