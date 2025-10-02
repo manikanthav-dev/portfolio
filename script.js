@@ -176,29 +176,45 @@ function initMusicToggle() {
     const musicText = musicToggle.querySelector('.music-text');
     const musicNudge = document.getElementById('musicNudge');
     let isPlaying = false;
-    let nudgeShown = false;
+    let nudgeInterval;
 
-    // Show nudge after 3 seconds if user hasn't interacted with music button
+    // Function to show nudge
+    function showNudge() {
+        musicNudge.classList.add('show');
+    }
+
+    // Function to hide nudge
+    function hideNudge() {
+        musicNudge.classList.remove('show');
+    }
+
+    // Start nudge loop - show every 3 seconds
+    function startNudgeLoop() {
+        nudgeInterval = setInterval(() => {
+            showNudge();
+            // Hide after 2 seconds (within the 3-second cycle)
+            setTimeout(() => {
+                hideNudge();
+            }, 2000);
+        }, 3000);
+    }
+
+    // Start the nudge loop after initial delay
     setTimeout(() => {
-        if (!nudgeShown) {
-            musicNudge.classList.add('show');
-        }
+        startNudgeLoop();
     }, 3000);
 
     // Hide nudge when user hovers over music toggle
     musicToggle.addEventListener('mouseenter', () => {
-        if (musicNudge.classList.contains('show')) {
-            musicNudge.classList.remove('show');
-            nudgeShown = true;
-        }
+        hideNudge();
     });
 
     musicToggle.addEventListener('click', () => {
-        // Hide nudge when clicked
-        if (musicNudge.classList.contains('show')) {
-            musicNudge.classList.remove('show');
-            nudgeShown = true;
+        // Stop the nudge loop when clicked
+        if (nudgeInterval) {
+            clearInterval(nudgeInterval);
         }
+        hideNudge();
 
         if (isPlaying) {
             backgroundMusic.pause();
