@@ -508,6 +508,71 @@ body {
     50% { opacity: 1; }
 }
 
+/* Music Nudge Styling */
+.music-nudge {
+    position: absolute;
+    top: -35px;
+    right: -10px;
+    background: linear-gradient(135deg, #38bdf8, #1e40af);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 10px;
+    color: #ffffff;
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    animation: nudge-bounce 2s ease-in-out infinite;
+}
+
+.music-nudge.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.nudge-text {
+    display: block;
+    margin-bottom: 2px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nudge-arrow {
+    text-align: center;
+    font-size: 12px;
+    animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes nudge-bounce {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+    }
+    50% { 
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+@keyframes arrow-bounce {
+    0%, 100% { 
+        transform: translateY(0);
+    }
+    50% { 
+        transform: translateY(-2px);
+    }
+}
+
+/* Hide nudge on mobile */
+@media (max-width: 768px) {
+    .music-nudge {
+        display: none;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .card-3d:hover {

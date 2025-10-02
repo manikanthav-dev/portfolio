@@ -174,9 +174,32 @@ function initMusicToggle() {
     const musicToggle = document.getElementById('musicToggle');
     const backgroundMusic = document.getElementById('background-music');
     const musicText = musicToggle.querySelector('.music-text');
+    const musicNudge = document.getElementById('musicNudge');
     let isPlaying = false;
+    let nudgeShown = false;
+
+    // Show nudge after 3 seconds if user hasn't interacted with music button
+    setTimeout(() => {
+        if (!nudgeShown) {
+            musicNudge.classList.add('show');
+        }
+    }, 3000);
+
+    // Hide nudge when user hovers over music toggle
+    musicToggle.addEventListener('mouseenter', () => {
+        if (musicNudge.classList.contains('show')) {
+            musicNudge.classList.remove('show');
+            nudgeShown = true;
+        }
+    });
 
     musicToggle.addEventListener('click', () => {
+        // Hide nudge when clicked
+        if (musicNudge.classList.contains('show')) {
+            musicNudge.classList.remove('show');
+            nudgeShown = true;
+        }
+
         if (isPlaying) {
             backgroundMusic.pause();
             musicText.textContent = '8-BIT OFF';
