@@ -318,26 +318,68 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Get it after deploying your Google Apps Script (see GOOGLE_SHEETS_SETUP.md)
                 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqwpKLxZxVu4xMNJ8NIYgKQ49gg6ZdIBFYJYjYAuzaHV2XI0ZcDe1kAdoQ7C6fxpwDlQ/exec';
                 
-                // Google Apps Script works better with form data or URL-encoded data
-                // We'll use a workaround by sending as form data
-                const formData = new URLSearchParams();
-                formData.append('name', name);
-                formData.append('email', email);
-                formData.append('message', message || '');
+                console.log('Submitting form to:', GOOGLE_SCRIPT_URL);
+                console.log('Form data:', { name, email, message });
                 
-                // Alternative: Send as JSON but handle CORS differently
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // This prevents CORS errors but we can't read response
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: formData.toString()
-                });
+                // Use hidden iframe form submission - most reliable with Google Apps Script
+                // This avoids CORS issues completely
                 
-                // With no-cors mode, we can't read the response
-                // So we'll assume success if no error is thrown
-                // Success
+                // Create or reuse hidden iframe
+                let iframe = document.getElementById('hidden-form-iframe');
+                if (!iframe) {
+                    iframe = document.createElement('iframe');
+                    iframe.id = 'hidden-form-iframe';
+                    iframe.name = 'hidden-form-iframe';
+                    iframe.style.display = 'none';
+                    iframe.style.width = '0';
+                    iframe.style.height = '0';
+                    iframe.style.border = 'none';
+                    document.body.appendChild(iframe);
+                }
+                
+                // Create a form and submit to iframe
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = GOOGLE_SCRIPT_URL;
+                form.target = 'hidden-form-iframe';
+                form.style.display = 'none';
+                
+                // Add form fields
+                const nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = 'name';
+                nameInput.value = name;
+                form.appendChild(nameInput);
+                
+                const emailInput = document.createElement('input');
+                emailInput.type = 'hidden';
+                emailInput.name = 'email';
+                emailInput.value = email;
+                form.appendChild(emailInput);
+                
+                const messageInput = document.createElement('input');
+                messageInput.type = 'hidden';
+                messageInput.name = 'message';
+                messageInput.value = message || '';
+                form.appendChild(messageInput);
+                
+                // Listen for iframe load to know when submission is complete
+                iframe.onload = function() {
+                    console.log('Form submitted successfully via iframe');
+                    // Clean up form after submission
+                    setTimeout(() => {
+                        if (document.body.contains(form)) {
+                            document.body.removeChild(form);
+                        }
+                    }, 1000);
+                };
+                
+                // Append form to body and submit
+                document.body.appendChild(form);
+                console.log('Submitting form via iframe to:', GOOGLE_SCRIPT_URL);
+                form.submit();
+                
+                // Show success message
                 showFormMessage('Message sent successfully! Adventure awaits! 🚀', 'success');
                 contactForm.reset();
                 
@@ -346,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     formMessage.classList.add('hidden');
                 }, 5000);
                 
-                return; // Exit early since we can't read response in no-cors mode
+                return;
                 
             } catch (error) {
                 console.error('Error submitting form:', error);
