@@ -177,7 +177,187 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Skill Tree Animations */
+/* Skill Tree Animations - Icon Based */
+.skill-category-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-divider {
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(56, 189, 248, 0.3), 
+        rgba(56, 189, 248, 0.5), 
+        rgba(56, 189, 248, 0.3), 
+        transparent
+    );
+    margin: 0.5rem 0;
+}
+
+.skill-icon-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 0.75rem;
+    background: rgba(17, 24, 39, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(55, 65, 81, 0.7);
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    gap: 0.75rem;
+}
+
+.skill-icon-card:hover {
+    transform: translateX(4px);
+    border-color: rgba(56, 189, 248, 0.6);
+    background: rgba(17, 24, 39, 0.7);
+    box-shadow: 
+        0 4px 12px rgba(56, 189, 248, 0.3),
+        0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.skill-icon-wrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.skill-icon-card:hover .skill-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.skill-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.3));
+    transition: all 0.3s ease;
+}
+
+.skill-icon-card:hover .skill-icon {
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+    transform: scale(1.1);
+}
+
+.skill-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #38bdf8;
+    filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.3));
+    transition: all 0.3s ease;
+}
+
+.skill-icon-card:hover .skill-icon svg {
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6));
+    color: #60a5fa;
+}
+
+.skill-icon svg path[fill="#FF9900"] {
+    fill: currentColor;
+}
+
+.skill-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    text-align: left;
+    transition: all 0.3s ease;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.skill-icon-card:hover .skill-name {
+    color: #38bdf8;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+/* Level Badge */
+.level-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: #ffffff;
+    font-size: 0.55rem;
+    font-weight: 700;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.375rem;
+    border: 1.5px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 
+        0 0 8px rgba(56, 189, 248, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    animation: badge-pulse 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.skill-icon-card:hover .level-badge {
+    transform: scale(1.15);
+    box-shadow: 
+        0 0 15px rgba(56, 189, 248, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Level Badge Colors */
+.level-badge.level-90,
+.level-badge.level-85 {
+    background: linear-gradient(135deg, #059669, #10b981);
+    border-color: rgba(16, 185, 129, 0.6);
+    box-shadow: 
+        0 0 10px rgba(16, 185, 129, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.level-badge.level-80,
+.level-badge.level-75 {
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    border-color: rgba(14, 165, 233, 0.6);
+    box-shadow: 
+        0 0 10px rgba(14, 165, 233, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.level-badge.level-70 {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 
+        0 0 10px rgba(139, 92, 246, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.level-badge.level-65,
+.level-badge.level-40 {
+    background: linear-gradient(135deg, #ea580c, #f97316);
+    border-color: rgba(249, 115, 22, 0.6);
+    box-shadow: 
+        0 0 10px rgba(249, 115, 22, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes badge-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(0.95);
+    }
+}
+
+/* Skill Tree Animations - Legacy (keeping for compatibility) */
 .skill-connector {
     position: relative;
     overflow: hidden;
@@ -575,6 +755,36 @@ body {
         padding: 4px 8px;
         font-size: 10px;
         gap: 4px;
+    }
+    
+    .skill-icon-card {
+        padding: 0.375rem 0.25rem;
+    }
+    
+    .skill-icon-wrapper {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .skill-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .skill-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .level-badge {
+        font-size: 0.5rem;
+        padding: 0.15rem 0.3rem;
+        top: -5px;
+        right: -5px;
+    }
+    
+    .skill-name {
+        font-size: 0.55rem;
     }
 }
 

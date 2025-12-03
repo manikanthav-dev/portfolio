@@ -282,6 +282,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Handle contact form submission
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+            
+            // Validate required fields
+            if (!name || !email) {
+                showFormMessage('Please fill in your name and email!', 'error');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormMessage('Please enter a valid email address!', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = document.getElementById('portal-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending... <span class="animate-pulse">⚡</span>';
+            
+            try {
+                // Replace with your Google Apps Script Web App URL
+                // Get it after deploying your Google Apps Script (see GOOGLE_SHEETS_SETUP.md)
+                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqwpKLxZxVu4xMNJ8NIYgKQ49gg6ZdIBFYJYjYAuzaHV2XI0ZcDe1kAdoQ7C6fxpwDlQ/exec';
+                
+                // Google Apps Script works better with form data or URL-encoded data
+                // We'll use a workaround by sending as form data
+                const formData = new URLSearchParams();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('message', message || '');
+                
+                // Alternative: Send as JSON but handle CORS differently
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // This prevents CORS errors but we can't read response
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: formData.toString()
+                });
+                
+                // With no-cors mode, we can't read the response
+                // So we'll assume success if no error is thrown
+                // Success
+                showFormMessage('Message sent successfully! Adventure awaits! 🚀', 'success');
+                contactForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+                
+                return; // Exit early since we can't read response in no-cors mode
+                
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showFormMessage(
+                    `Failed to send message: ${error.message}. Please try again or contact me directly at manikanthav-dev@outlook.com`, 
+                    'error'
+                );
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    function showFormMessage(text, type) {
+        if (!formMessage) return;
+        
+        formMessage.textContent = text;
+        formMessage.classList.remove('hidden');
+        
+        if (type === 'success') {
+            formMessage.className = 'mt-4 p-3 rounded-lg text-center text-sm bg-green-900/50 text-green-300 border border-green-500/30';
+        } else {
+            formMessage.className = 'mt-4 p-3 rounded-lg text-center text-sm bg-red-900/50 text-red-300 border border-red-500/30';
+        }
+    }
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
